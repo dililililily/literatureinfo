@@ -236,7 +236,7 @@
 | -------- | -------------------------------------------- |
 | 返回格式 | JSON                                         |
 | 请求方式 | POST                                         |
-| 请求示例 | http://localhost:8080/user/login |
+
 
 
 ### 返回参数说明
@@ -244,7 +244,7 @@
 | ------- | ------ | -------- |
 | code    | int    | 状态码 |
 | msg | String | 状态信息 |
-| role_id   | int | 用户 id |
+| user_id   | int | 用户 id |
 | account_name  | String | 用户名   |
 | password | String | 密码   |
 | role_id | int | 用户角色id |
@@ -252,7 +252,7 @@
 ### JSON返回示例
 ```json
 {
-     "msg":"注册成功",
+     "msg":"登录成功",
      "code":200,
      "detail":
        {

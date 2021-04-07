@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 // 相当于@Controller+@RequestBody
 @RestController
 // 访问目录
-@RequestMapping("/user")
+@RequestMapping("/api")
 public class UserController {
 
 

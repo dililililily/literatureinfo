@@ -5,7 +5,7 @@ public class Result<T> {
     // 返回信息
     private String msg;
 
-    // 返回code -1等于失败 200成功
+    // 返回code 1等于失败 0成功
     private int code;
 
     // 具体返回的数据

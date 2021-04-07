@@ -22,18 +22,18 @@ public class UserService {
      */
     public Result register(User user) {
         Result result = new Result();
-        result.setCode(-1);
+        result.setCode(1);
         result.setDetail(null);
         try {
             User existUser = userMapper.findUserByName(user.getAccount_number());
             if (existUser != null) {
                 //如果用户名已存在
-                result.setCode(-1);
+                result.setCode(1);
                 result.setMsg("用户名已存在");
             } else {
                 userMapper.register(user);
                 result.setMsg("注册成功");
-                result.setCode(200);
+                result.setCode(0);
                 result.setDetail(user);
             }
         } catch (Exception e) {
@@ -51,15 +51,15 @@ public class UserService {
      */
     public Result login(User user) {
         Result result = new Result();
-        result.setCode(-1);
+        result.setCode(1);
         result.setDetail(null);
         try {
             Long userId = userMapper.login(user);
             if (userId == null) {
-                result.setCode(-1);
+                result.setCode(1);
                 result.setMsg("用户名或密码错误");
             } else {
-                result.setCode(200);
+                result.setCode(0);
                 result.setMsg("登录成功");
                 user.setId(userId);
                 result.setDetail(user);

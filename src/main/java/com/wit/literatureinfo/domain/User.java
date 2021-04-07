@@ -5,35 +5,35 @@ package com.wit.literatureinfo.domain;
  */
 public class User {
     // 用于数据库主键
-    private long user_id;
+    private long id;
     // 用户名，不能重复
-    private String user_name;
+    private String account_number;
     // 用户密码
     private String password;
     // 手机号
-    private String role_id;
+    private long role_id;
 
     public long getId() {
-        return user_id;
+        return id;
     }
 
-    public void setId(long user_id) {
-        this.user_id = user_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getAccount_number() {
-        return user_name;
+        return account_number;
     }
 
-    public void setAccount_number(String user_name) {
-        this.user_name = user_name;
+    public void setAccount_number(String account_number) {
+        this.account_number = account_number;
     }
 
-    public String getRole_id() {
+    public long getRole_id() {
         return role_id;
     }
 
-    public void setRole_id(String role_id) {
+    public void setRole_id(long role_id) {
         this.role_id = role_id;
     }
 

@@ -13,13 +13,13 @@ public interface UserMapper {
      * 注解@Param(value) 若value与可变参数相同，注解可省略
      * 注解@Results  列名和字段名相同，注解可省略
      *
-     * @param user_name
+     * @param account_number
      * @return
      */
-    @Select(value = "select u.user_name,u.password from user u where u.user_name=#{user_name}")
-    @Results({@Result(property = "user_name", column = "user_name"),
+    @Select(value = "select u.account_number,u.password from user u where u.account_number=#{account_number}")
+    @Results({@Result(property = "account_number", column = "account_number"),
             @Result(property = "password", column = "password")})
-    User findUserByName(@Param("user_name") String user_name);
+    User findUserByName(@Param("account_number") String account_number);
 
     /**
      * 注册  插入一条user记录
@@ -28,9 +28,9 @@ public interface UserMapper {
      * @return
      */
 
-    @Insert("insert into user values(#{user_id},#{user_name},#{password},#{role_id})")
+    @Insert("insert into user values(#{id},#{account_number},#{password},#{role_id})")
     // 加入该注解可以保存对象后，查看对象插入id
-    @Options(useGeneratedKeys = true, keyProperty = "user_id", keyColumn = "user_id")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void register(User user);
 
     /**
@@ -39,6 +39,6 @@ public interface UserMapper {
      * @param user
      * @return
      */
-    @Select("select u.user_id from user u where u.user_name = #{user_name} and password = #{password}")
+    @Select("select u.id from user u where u.account_number = #{account_number} and password = #{password}")
     Long login(User user);
 }
