@@ -222,3 +222,43 @@
 
 
 ## login
+> 状态码
+
+| code | message                 |
+| ---- | ----------------------- |
+| 200  | 成功      |
+| -1  | 未知错误 |
+| -100  | 用户已经存在      |
+| -200  | 密码错误      |
+
+### 基本说明
+| 接口地址 | http://localhost:8080/user/login             |
+| -------- | -------------------------------------------- |
+| 返回格式 | JSON                                         |
+| 请求方式 | POST                                         |
+| 请求示例 | http://localhost:8080/user/login |
+
+
+### 返回参数说明
+| 名称  | 类型 | 说明   |
+| ------- | ------ | -------- |
+| code    | int    | 状态码 |
+| msg | String | 状态信息 |
+| role_id   | int | 用户 id |
+| account_name  | String | 用户名   |
+| password | String | 密码   |
+| role_id | int | 用户角色id |
+
+### JSON返回示例
+```json
+{
+     "msg":"注册成功",
+     "code":200,
+     "detail":
+       {
+	   "user_id":12,
+	   "password":"123",
+	   "role_id":null,
+	   "account_number":"admin"
+	   }
+}
