@@ -219,24 +219,21 @@
   "message": "数据获取成功"
 }
 ```
-
-
-## login
+## register
 > 状态码
 
 | code | message                 |
 | ---- | ----------------------- |
-| 200  | 成功      |
-| -1  | 未知错误 |
-| -100  | 用户已经存在      |
-| -200  | 密码错误      |
+| 0  | 注册成功      |
+| 1  | 未知错误 |
+
 
 ### 基本说明
-| 接口地址 | http://localhost:8080/user/login             |
+| 接口地址 | http://localhost:8080/api/register            |
 | -------- | -------------------------------------------- |
 | 返回格式 | JSON                                         |
 | 请求方式 | POST                                         |
-
+| 请求示例 | http://localhost:8080/api/register?account_number=admin2&password=123 |
 
 
 ### 返回参数说明
@@ -252,13 +249,53 @@
 ### JSON返回示例
 ```json
 {
-     "msg":"登录成功",
-     "code":200,
-     "detail":
-       {
-	   "user_id":12,
-	   "password":"123",
-	   "role_id":null,
-	   "account_number":"admin"
-	   }
+    "msg": "注册成功",
+    "code": 0,
+    "detail": {
+        "id": 15,
+        "account_number": "admin2",
+        "password": "123",
+        "role_id": 0
+    }
+}
+```
+
+## login
+> 状态码
+
+| code | message                 |
+| ---- | ----------------------- |
+| 0  | 登录成功      |
+| 1  | 未知错误 |
+
+
+### 基本说明
+| 接口地址 | http://localhost:8080/api/login             |
+| -------- | -------------------------------------------- |
+| 返回格式 | JSON                                         |
+| 请求方式 | POST                                         |
+| 请求示例 | http://localhost:8080/api/login?account_number=admin2&password=123 |
+
+
+### 返回参数说明
+| 名称  | 类型 | 说明   |
+| ------- | ------ | -------- |
+| code    | int    | 状态码 |
+| msg | String | 状态信息 |
+| user_id   | int | 用户 id |
+| account_name  | String | 用户名   |
+| password | String | 密码   |
+| role_id | int | 用户角色id |
+
+### JSON返回示例
+```json
+{
+    "msg": "登录成功",
+    "code": 0,
+    "detail": {
+        "id": 15,
+        "account_number": "admin2",
+        "password": "123",
+        "role_id": 0
+    }
 }
